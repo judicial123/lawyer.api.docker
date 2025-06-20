@@ -1,27 +1,39 @@
-version: '3.8'
-
 services:
   sqlserver:
     image: mcr.microsoft.com/mssql/server:2022-latest
     container_name: lawyer.data.mssql
     environment:
       - ACCEPT_EULA=Y
-      - SA_PASSWORD=laywer.data.mssql.data001
-        
+      - SA_PASSWORD=lawyer.data.mssql.data001
     ports:
       - "1433:1433"
     volumes:
-      - ./volumes/laywer.data.myssql:/var/opt/mssql
+      - ./volumes/lawyer.data.myssql:/var/opt/mssql
+    networks:
+      - backend
+        
+  auth.webapi:
+    image: lawyer.api.auth.webapi
+    container_name: lawyer.api.auth.webapi
+    build:
+      context: ../lawyer.api.auth
+      dockerfile: ./lawyer.api.auth.webapi/Dockerfile
+    ports:
+      - 8080:8080
     networks:
       - backend
 
-  lawyer.api.clients.webapi:
+  clients.webapi:
     image: lawyer.api.clients.webapi
+    container_name: lawyer.api.clients.webapi
     build:
       context: ../lawyer.api.clients
       dockerfile: ./lawyer.api.clients.webapi/Dockerfile
     ports:
-      - 8080:8080
+      - 8081:8080
+    networks:
+      - backend
+
 networks:
   backend:
     
