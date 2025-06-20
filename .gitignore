@@ -28,4 +28,4 @@ Desktop.ini
 .DS_Store
 
 # Exclude local database volumen
-/volumes/laywer.data.myssql/*/
+/volumes/lawyer.data.myssql/*/
