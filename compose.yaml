@@ -18,8 +18,8 @@ services:
   lawyer.api.clients.webapi:
     image: lawyer.api.clients.webapi
     build:
-      context: ../lawyer.api.clients/lawyer.api.clients.webapi
-      dockerfile: ../lawyer.api.clients/lawyer.api.clients.webapi/Dockerfile
+      context: ../lawyer.api.clients
+      dockerfile: ./lawyer.api.clients.webapi/Dockerfile
     ports:
       - 8080:8080
 networks:
