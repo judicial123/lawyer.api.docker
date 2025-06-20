@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: lawyer.data.mssql
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=
+        
+    ports:
+      - "1433:1433"
+    volumes:
+      - ./volumes/laywer.data.myssql:/var/opt/mssql
+    networks:
+      - backend
+
+networks:
+  backend:
