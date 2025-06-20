@@ -6,7 +6,7 @@ services:
     container_name: lawyer.data.mssql
     environment:
       - ACCEPT_EULA=Y
-      - SA_PASSWORD=
+      - SA_PASSWORD=laywer.data.mssql.data001
         
     ports:
       - "1433:1433"
@@ -15,5 +15,13 @@ services:
     networks:
       - backend
 
+  lawyer.api.clients.webapi:
+    image: lawyer.api.clients.webapi
+    build:
+      context: ../lawyer.api.clients/lawyer.api.clients.webapi
+      dockerfile: ../lawyer.api.clients/lawyer.api.clients.webapi/Dockerfile
+    ports:
+      - 8080:8080
 networks:
   backend:
+    
