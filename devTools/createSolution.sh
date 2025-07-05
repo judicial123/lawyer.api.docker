@@ -52,6 +52,7 @@ dotnet add package Microsoft.EntityFrameworkCore --version 8.0.2
 dotnet add package Microsoft.EntityFrameworkCore.SqlServer --version 8.0.2
 dotnet add package Microsoft.EntityFrameworkCore.Tools --version 8.0.2
 dotnet add package Microsoft.Extensions.Configuration --version 8.0.0
+dotnet add package Microsoft.Extensions.Configuration.Json --version 8.0.0
 dotnet add package Microsoft.Extensions.Options.ConfigurationExtensions --version 8.0.0
 cd ..
 echo "Project ${FOLDER_NAME}.datastore.mssql created in $(pwd)"
