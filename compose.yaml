@@ -11,6 +11,17 @@ services:
       - ./volumes/lawyer.data.myssql:/var/opt/mssql
     networks:
       - backend
+  
+  shared.webapi:
+    image: lawyer.api.shared.webapi
+    container_name: lawyer.api.shared.webapi
+    build:
+      context: ../lawyer.api.shared
+      dockerfile: ./lawyer.api.shared.webapi/Dockerfile
+    ports:
+      - "8079:8080"
+    networks:
+      - backend
         
   auth.webapi:
     image: lawyer.api.auth.webapi
