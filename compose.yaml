@@ -66,6 +66,28 @@ services:
       - "8083:8080"
     networks:
       - backend
+  
+  leads.webapi:
+    image: lawyer.api.leads.webapi
+    container_name: lawyer.api.leads.webapi
+    build:
+      context: ../lawyer.api.leads
+      dockerfile: ./lawyer.api.leads.webapi/Dockerfile
+    ports:
+      - "8084:8080"
+    networks:
+      - backend
+  
+  appointments.webapi:
+    image: lawyer.api.appointments.webapi
+    container_name: lawyer.api.appointments.webapi
+    build:
+      context: ../lawyer.api.appointments
+      dockerfile: ./lawyer.api.appointments.webapi/Dockerfile
+    ports:
+      - "8085:8080"
+    networks:
+      - backend
 
 networks:
   backend:
